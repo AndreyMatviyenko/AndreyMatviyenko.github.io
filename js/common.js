@@ -28,17 +28,17 @@ $(document).ready(function() {
 
 		var qList = {
 			1: [
-              		{"question": "Какие полезные для фронтенд-разработчика ресурсы вы используете и готовы посоветовать?","answer": "обычно я гуглю. естесственно некоторые сайты чаще помогают, чем другие. могу порекомендовать stackoverflow.com как сайт, где часто уже есть вопрос, совпадающий с имеющейся проблемой. http://htmlbook.ru - прекрасный справочник по html. jquery.com - справочник по jquery."},
-					{"question": "С какими редакторами и средами разработки вы знакомы? Чем обычно пользуетесь?","answer": "Вот это вот писал в Sublime Text 3."}
-               ],
+				{"question": "Какие полезные для фронтенд-разработчика ресурсы вы используете и готовы посоветовать?","answer": "обычно я гуглю. естесственно некоторые сайты чаще помогают, чем другие. могу порекомендовать stackoverflow.com как сайт, где часто уже есть вопрос, совпадающий с имеющейся проблемой. http://htmlbook.ru - прекрасный справочник по html. jquery.com - справочник по jquery."},
+				{"question": "С какими редакторами и средами разработки вы знакомы? Чем обычно пользуетесь?","answer": "Вот это вот писал в Sublime Text 3."}
+			],
 			2: [
-              		{"question": "Уровень владения английским языком?","answer": "высокий уровень английского"},
-					{"question": "Какие языки программирования, фреймворки и технологии вы использовали? Сложились ли у вас личные предпочтения?","answer": "языки - ruby, php, javascript, java, vba. фреймворки - spring для java и RoR для ruby. про технологии подробней лучше почитать на странице, где резюме. Предпочитаю RoR, ruby - очень удобно и быстро писать, позволяют делать удивительные вещи."}
-            	],
+				{"question": "Уровень владения английским языком?","answer": "высокий уровень английского"},
+				{"question": "Какие языки программирования, фреймворки и технологии вы использовали? Сложились ли у вас личные предпочтения?","answer": "языки - ruby, php, javascript, java, vba. фреймворки - spring для java и RoR для ruby. про технологии подробней лучше почитать на странице, где резюме. Предпочитаю RoR, ruby - очень удобно и быстро писать, позволяют делать удивительные вещи."}
+			],
 			3: [
-              		{"question": "Год окончания вуза?","answer": "2014"},
-					{"question": "Год рождения?","answer": "1991 год от рождения Иисуса"}
-            	]
+				{"question": "Год окончания вуза?","answer": "2014"},
+				{"question": "Год рождения?","answer": "1991 год от рождения Иисуса"}
+			]
 		};
 
 		function preloadQuestion(category) {
@@ -74,14 +74,19 @@ $(document).ready(function() {
 			$(".chat-question").text(quest);
 		});
 
+		var ele   = $('.chat-discussion');
+		var scroll = 1500;
+
 		$('#sendToChat').click(function(){
 			var date = new Date();
-      var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+			var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
 			var content = $('#q_quest').find("option:selected").text();
 			var answer = $('#q_quest').find("option:selected").val();
 			var guest = $('<div class="chat-message right"><img class="message-avatar" src="img/quest.jpg" alt="" ><div class="message"><span class="message-content">' + content + '</span></div><span class="message-date">' + time + '</span></div>');
 			var myAnswer = $('<div class="chat-message left"><img class="message-avatar" src="img/my_photo.jpg" alt="" ><div class="message"><span class="message-content">' + answer + '</span></div><span class="message-date">' + time + '</span></div>');
 			$('.chat-discussion').append(guest, myAnswer);
+			ele.scrollTop( ele.scrollTop() + scroll );
+
 		})
 
 		$(document).on('scroll', setWidth);
@@ -95,6 +100,59 @@ $(document).ready(function() {
 				$(this).toggleClass("on");
 				$(".menu").toggleClass("on");
 		});
+
+		$(".social-heart_wrap").click(function() {
+				$(this).toggleClass("on");
+		});
+
+		//Share
+		var shareTitle = document.title;
+		var btnShareUrl = window.location.href;	
+
+		var shareBtn = document.getElementsByClassName('btn-share');
+		for(var i=0;i<shareBtn.length;i++)
+			shareBtn[i].addEventListener('click',function(){
+				reposterShareUrl = this.getAttribute("data-type");
+				reposterShare(reposterShareUrl);
+		});
+
+		function reposterShare(url) {
+			switch (url) {
+				case 'facebook':
+					href = 'https://www.facebook.com/sharer/sharer.php?u=' + btnShareUrl + '&title=' + shareTitle;
+					return !window.open(href, 'Facebook', 'width=640,height=300');
+					break;
+				case 'vkontakte':
+					href = 'https://vk.com/share.php?url=' + btnShareUrl + '?title=' + shareTitle;
+					return !window.open(href, 'Vkontakte', 'width=640,height=300');
+					break;
+				default:
+					console.log("url");
+			}
+		};
+
+		var isHome = document.getElementById("isHome");
+
+		if (isHome) {
+			$('.slider-projects').owlCarousel({
+					center:true,
+					loop:true,
+					margin:30,
+					nav:true,
+					navText: "",
+					responsive:{
+							0:{
+									items:1
+							},
+							600:{
+									items:2
+							},
+							1000:{
+									items:3
+							}
+					}
+			});
+		}
 
 		//Цели для Яндекс.Метрики и Google Analytics
 		$(".count_element").on("click", (function() {
