@@ -11,7 +11,7 @@ gulp.task('express', function() {
 	var app = express();
 	app.use(require('connect-livereload')({port: 35729}));
 	app.use(express.static(__dirname + '/'));
-	app.listen('3003', hostname);
+	app.listen('3000', hostname);
 });
 
 var tinylr;
