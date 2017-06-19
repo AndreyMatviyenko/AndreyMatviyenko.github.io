@@ -1,28 +1,28 @@
 $(document).ready(function() {
 
-		var getMax = function() {
-				return $(document).height() - $(window).height();
-		}
+		// var getMax = function() {
+		// 		return $(document).height() - $(window).height();
+		// }
 
-		var getValue = function() {
-				return $(window).scrollTop();
-		}
+		// var getValue = function() {
+		// 		return $(window).scrollTop();
+		// }
 
-		var progressBar = $('.progress-bar'),
-				max = getMax(),
-				value, width;
+		// var progressBar = $('.progress-bar'),
+		// 		max = getMax(),
+		// 		value, width;
 
-		var getWidth = function() {
-				// Calculate width in percentage
-				value = getValue();
-				width = (value / max) * 100;
-				width = width + '%';
-				return width;
-		}
+		// var getWidth = function() {
+		// 		// Calculate width in percentage
+		// 		value = getValue();
+		// 		width = (value / max) * 100;
+		// 		width = width + '%';
+		// 		return width;
+		// }
 
-		var setWidth = function() {
-				progressBar.css({ width: getWidth() });
-		}
+		// var setWidth = function() {
+		// 		progressBar.css({ width: getWidth() });
+		// }
 
 		//Chats scripts
 
@@ -89,12 +89,12 @@ $(document).ready(function() {
 
 		})
 
-		$(document).on('scroll', setWidth);
-		$(window).on('resize', function() {
-				// Need to reset the Max attr
-				max = getMax();
-				setWidth();
-		});
+		// $(document).on('scroll', setWidth);
+		// $(window).on('resize', function() {
+		// 		// Need to reset the Max attr
+		// 		max = getMax();
+		// 		setWidth();
+		// });
 
 		$(".toggle-mnu").click(function() {
 				$(this).toggleClass("on");
@@ -135,22 +135,12 @@ $(document).ready(function() {
 
 		if (isHome) {
 			$('.slider-projects').owlCarousel({
-					center:true,
-					loop:true,
+					center:false,
+					loop:false,
 					margin:30,
 					nav:true,
 					navText: "",
-					responsive:{
-							0:{
-									items:1
-							},
-							600:{
-									items:2
-							},
-							1000:{
-									items:3
-							}
-					}
+					items: 1
 			});
 		}
 

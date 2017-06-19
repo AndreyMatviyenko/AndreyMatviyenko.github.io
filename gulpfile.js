@@ -30,7 +30,7 @@ function notifyLiveReload(event) {
 }
 
 gulp.task('styles', function () {
-	gulp.src('sass/*.sass')
+	gulp.src('./sass/*.sass')
 	.pipe(sass({
 		includePaths: require('node-bourbon').includePaths
 	}).on('error', sass.logError))
@@ -44,7 +44,7 @@ gulp.task('styles', function () {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('sass/*.sass', ['styles']);
+	gulp.watch('./sass/*.sass', ['styles']);
 	gulp.watch('./*.css', notifyLiveReload);
 	gulp.watch('./*.html', notifyLiveReload);
 	gulp.watch('./js/*.js', notifyLiveReload);

@@ -3,13 +3,15 @@
 
 @import "_var.sass"
 
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500');
+
 body
 	font-size: 15px
 	min-width: 320px
 	position: relative
-	background-color: $base-color
+	background-color: $black-color
 	line-height: 1.6
-	font-family: "Open Sans", sans-serif
+	font-family: "Source Code Pro", monospace
 	overflow-x: hidden
 	color: #222
 
@@ -34,11 +36,15 @@ header
 	position: fixed
 	top: 0px
 	left: 0
-	background-color: $white-color
+	background-color: $main-color
 	width: 100%
 	height: auto
 	z-index: 99
 	// box-shadow: 0px 4px 8px rgba(0,0,0,0.15)
+
+mark 
+	background-color: transparent
+	color: $blue
 
 .progress-bar
 	position: relative
@@ -136,7 +142,7 @@ nav
 			display: inline-block
 			position: relative
 		a
-			color: lighten($main-color, 20%)
+			color: $blue
 			font-size: 16px
 			font-weight: 100
 			line-height: 52px
@@ -145,19 +151,20 @@ nav
 			&::before
 				content: ''
 				position: absolute
-				bottom: 0px
-				left: 50%
+				top: 50%
+				left: -15px
 				width: 0%
 				height: 2px
-				transform: translateX(-50%)
-				background: $black-color
+				transform: translateY(-50%)
+				@include triangle(12px, $blue, right);
 				opacity: 0
-				transition: all .3s ease
+				transition: all .2s ease
 			&:hover, &:focus
 				text-decoration: none
-				color: $black-color
+				color: $blue
 				&::before
 					width: 50%
+					left: 0
 					opacity: 1
 
 img
@@ -169,21 +176,59 @@ img
 	width: 52px
 	height: 52px
 	line-height: 52px
-	background-color: yellow
+	background-color: $blue
 	text-align: center
 	img
 		width: 40px
 		height: auto
 
+.introduction
+	font-size: 20px
+	line-height: 1.7
+	max-width: 700px
+	margin-left: auto
+	margin-right: auto
+
+.line
+    @include set-flex(row, flex-start, flex-start)
+
+.line-number
+    width: $regular
+    margin-right: 1.5rem
+    opacity: 0.33
+
+.line-content
+    &,
+    mark
+        font-size: $font-large
+        line-height: 30px
+        letter-spacing: $letter-spacing-small
+        opacity: 85%
+    mark
+        letter-spacing: $letter-spacing-regular
+
+.empty-line
+    background: linear-gradient(to bottom, $black, $darker-grey)
+    .line-number
+        display: block
+    .line-number-a
+        opacity: 0.15
+    .line-number-b
+        opacity: 0.1
+    .line-number-c
+        opacity: 0.05
+    .line-number-d
+        opacity: 0.04
+
 .home-header
 	position: relative
 	display: table
-	color: $black-color
+	color: $base-color
 	padding: 60px 0
 	width: 100%
 	height: 100vh
 	min-height: 400px
-	text-align: center
+	text-align: left
 	.text-wrap
 		display: table-cell
 		vertical-align: middle
@@ -321,17 +366,19 @@ img
 	text-align: center
 	margin-top: 40px
 	.owl-dot
-		width: 16px
-		height: 16px
-		margin: 6px 3px
-		background-color: #999
+		width: 14px
+		height: 14px
+		margin: 6px
+		background-color: $red
 		opacity: .4
 		display: inline-block
 		border-radius: 10em
 		position: relative
 		z-index: 999
+		transition: width .3s ease
 		&.active
 			opacity: 1
+			width: 28px
 	.owl-nav
 		position: absolute
 		top: 40%

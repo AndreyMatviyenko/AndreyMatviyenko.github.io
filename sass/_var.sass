@@ -1,5 +1,5 @@
-$main-color: #393939
-$black-color: #000
+$main-color: #353535
+$black-color: #252423
 
 $white-color: #fefefe
 $progress-color: #333
@@ -11,3 +11,37 @@ $work-head-color: #ddd
 $red-color: #d2366d
 
 $box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2)
+
+
+// color
+$black: #252423
+$white: #ffffff
+$red: rgba(252,41,74,0.99)
+$blue: #3C9FE4
+$light-blue: #cde5ff
+$grey: #333
+$darker-grey: #252525
+$dark-grey: #353535
+
+// size metrics
+$regular: 14px
+$full: 100%
+$screen-height: 100vh
+
+// font-size
+$font: $regular
+$font-large: 18px
+
+// letter spacing
+$letter-spacing-normal: 0.7px
+$letter-spacing-regular: 6px
+$letter-spacing-small: 4px
+$letter-spacing-large: 9px
+
+@mixin set-flex($direction: row,
+$justify-content: center,
+$align-items: center)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify-content
+    align-items: $align-items
