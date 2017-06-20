@@ -104,7 +104,7 @@ select, input
 input:focus
 	transition: all .4s ease
 	background-color: transparent
-	border-bottom: 2px solid $green-color
+	border-bottom: 2px solid $blue
 
 h1
 	font-size: 44px
@@ -123,9 +123,9 @@ p
 	line-height: 1.6
 
 a
-	color: $link-color
+	color: $red
 	&:hover
-		color: darken($link-color, 5%)
+		color: darken($red, 5%)
 
 nav
 	position: relative
@@ -250,9 +250,9 @@ img
 
 .toggle-mnu
 	float: right
-	margin-right: 20px
-	width: 26px
-	height: 40px
+	margin-right: 10px
+	width: 40px
+	height: 52px
 	cursor: pointer
 	background-color: transparent
 
@@ -261,10 +261,10 @@ img
 	content: ""
 	position: absolute
 	left: 0
-	top: 14px
+	top: 20px
 
 .toggle-mnu span:after
-	top: 7px
+	top: 10px
 	width: 32px
 
 .toggle-mnu span 
@@ -275,28 +275,28 @@ img
 .toggle-mnu span,
 .toggle-mnu span:after,
 .toggle-mnu span:before
-	width: 100%
+	width: 90%
 	height: 2px
-	background-color: $main-color
+	background-color: $blue
 	transition: all 0.3s
 	backface-visibility: hidden
 	border-radius: 0px
 
 .toggle-mnu span:after
-	width: 110%
+	width: 100%
 
 .toggle-mnu span:before
-	width: 24px
+	width: 100%
 
 /* on activation */
 .toggle-mnu.on span 
 	background-color: transparent
 
 .toggle-mnu.on span:before 
-	transform: rotate(45deg) translate(-6px, -6px)
+	transform: rotate(45deg) translate(-6px, -8px)
 
 .toggle-mnu.on span:after 
-	transform: rotate(-45deg) translate(1px, -2px)
+	transform: rotate(-45deg) translate(1px, 1px)
 
 .toggle-mnu.on + #menu 
 	opacity: 1

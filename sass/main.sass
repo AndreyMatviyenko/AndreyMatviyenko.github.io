@@ -5,18 +5,18 @@
 *:-moz-placeholder,
 *::-moz-placeholder,
 *:-ms-input-placeholder
-	color: $main-color
+	color: $red
 	opacity: 1
 
 ::selection
-	background-color: #999
-	color:#fff
+	background-color: $main-color
+	color: $red
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid,
 body input:required:valid,
 body textarea:required:valid
-	color: $main-color
+	color: $blue
 
 .section-about
 	position: relative
@@ -114,11 +114,13 @@ ol
 
 .section--skills
 	position: relative
+	h2
+		color: $blue
 	.tab
 		display: none
 		padding: 30px 20px
 		border: 1px solid #ccc
-		background-color: $gray-section-color
+		background-color: $base-color
 	.tabs
 		position: relative
 		text-align: left
@@ -135,13 +137,14 @@ ol
 		text-align: left
 		border: 1px solid #ccc
 		transition: all .4s ease
+		background-color: #ccc
 	label:hover
 		border: 1px solid #ccc
 		cursor: pointer
 	input:checked + label
 		border: 1px solid #ccc
-		border-bottom-color: $gray-section-color
-		background-color: $gray-section-color
+		border-bottom-color: $base-color
+		background-color: $base-color
 		&::before
 			width: 240px
 			height: 50px
@@ -267,7 +270,9 @@ ol
 /* Start contact style */
 .section--contact
 	text-align: left
+	background-color: $base-color
 	h1
+		color: $blue
 		font-size: 70px
 		margin-top: 0
 

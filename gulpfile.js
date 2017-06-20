@@ -9,15 +9,15 @@ rename = require('gulp-rename');
 gulp.task('express', function() {
 	var express = require('express');
 	var app = express();
-	app.use(require('connect-livereload')({port: 35729}));
+	app.use(require('connect-livereload')({port: 35720}));
 	app.use(express.static(__dirname + '/'));
-	app.listen('3000', hostname);
+	app.listen('3001', hostname);
 });
 
 var tinylr;
 gulp.task('livereload', function() {
 	tinylr = require('tiny-lr')();
-	tinylr.listen(35729);
+	tinylr.listen(35720);
 });
 
 function notifyLiveReload(event) {
